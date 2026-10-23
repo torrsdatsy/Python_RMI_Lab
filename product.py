@@ -8,9 +8,14 @@ class Product:
         self.stock = stock
 
     def purchase(self, quantity):
-        if quantity <= self.stock:
+        if quantity > self.stock:
+            excess = quantity - self.stock
+            print(f"[SERVER LOG]: Exceeded stocks by {excess} units for {self.name}")
+            return f"[ERROR]: Cannot purchase exceeded {quantity}x {self.name}, Only {self.stock} stocks left"
+        else:
             self.stock -= quantity
             total = quantity * self.price
             return f"Purchased {quantity}x {self.name} (Total P{total:,.2f})"
-        return f"Only {self.stock} stocks left"
+            
+        
 
