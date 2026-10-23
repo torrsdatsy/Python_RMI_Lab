@@ -16,6 +16,3 @@ class Product:
             self.stock -= quantity
             total = quantity * self.price
             return f"Purchased {quantity}x {self.name} (Total P{total:,.2f})"
-            
-        
-
